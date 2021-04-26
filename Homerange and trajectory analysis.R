@@ -20,7 +20,7 @@ library(rgdal)
 library(tmaptools)
 
 # Read in jackal data
-jackal<-read.csv(here::here("Data", "black-backed-jackal-Namibia-10.csv"))
+jackal<-read.csv(here::here("black-backed-jackal-Namibia-10.csv"))
 
 # Check the format of the data
 head(jackal)
@@ -112,7 +112,9 @@ max(jackal_mcp.data$area) # 135264.5
 boxplot(jackal_mcp.data$area) # Shows two outliers (high values)
 
 # Does the size of the home range vary with the number of fixes?
-ggplot(jackal_mcp.data,aes(area, relocs))+geom_point()
+ggplot(jackal_mcp.data,aes(area, relocs))+
+  geom_point()+
+  ggtitle("Area vs fixes")
 
 # Plot the home ranges
 plot(jackal_mcp)
